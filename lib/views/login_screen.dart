@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:go_router/go_router.dart';
@@ -214,7 +213,6 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // ==================== LOGIN HANDLER ====================
   void _handleLogin() async {
     // Validate email
     final emailError = Validators.validateEmail(_emailController.text);
@@ -248,11 +246,14 @@ class _LoginScreenState extends State<LoginScreen> {
       ErrorHandler.showSuccess(context, 'Login Successful!');
       
       // Wait a bit to ensure token is fully saved
+
+      
       await Future.delayed(const Duration(milliseconds: 300));
       
       if (!mounted) return;
       
       // Navigate to personnel list screen
+
       context.go(AppRouter.personnelList);
     } else {
       // Show error message
